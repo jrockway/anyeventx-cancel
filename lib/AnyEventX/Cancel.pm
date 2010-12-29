@@ -20,9 +20,10 @@ my %loop_killers = (
             $watcher->cancel;
         }
     },
-    # 'AnyEvent::Impl::EV' => sub {
-    #     EV::cancel_all_watchers();
-    # },
+    'AnyEvent::Impl::EV' => sub {
+        EV::default_destroy();
+        EV::default_loop();
+    },
 );
 
 sub cancel_all_watchers(;@){
