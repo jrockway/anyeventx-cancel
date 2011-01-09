@@ -1,8 +1,9 @@
 package AnyEventX::Cancel;
+# ABSTRACT: cancel all AnyEvent watchers
 use strict;
 use warnings;
 
-our $VERSION = '0.00_01';
+our $VERSION;
 
 use AnyEvent;
 
