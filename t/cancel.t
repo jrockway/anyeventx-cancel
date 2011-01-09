@@ -17,6 +17,7 @@ if(fork){
     close $w;
     $t2 = AnyEvent->timer( after => 2, cb => sub {
         my $child = <$r>;
+        close $r;
         print $child;
         print "ok 2 - parent\n";
         exit 0;
