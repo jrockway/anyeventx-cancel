@@ -31,6 +31,7 @@ sub cancel_all_watchers(;@){
     my $loop_type = AnyEvent::detect;
     my $loop_killer = $loop_killers{$loop_type};
     $loop_killer->() if $loop_killer;
+    $AnyEvent::CondVar::Base::WAITING = 0;
     if (!$loop_killer && (my $w = $args{warning})) {
         if ($w eq '1') {
             print {*STDERR} "WARNING: UNSUPPORTED EVENT LOOP IN USE, ".
